@@ -19,43 +19,51 @@
 
 using namespace std;
 
-int sumarnum(int n){
-	int cont=0;
-	while(n){
-		cont+=(n%10);
-		n/=10;
-	}
 
+string sumk(string q,int k){
+	string aux="";
+	while(k--)aux+=q;
+	return aux;
+}
+
+
+ll sumardiv(string q,int i){
+	ll cont =0;
+	fi(i,0,q.size(),1){
+		cont+=q[i]-48;
+	}
 	return cont;
 }
 
-int sumardiv(int n){
-	if(n==0)return 0;
-	return sumardiv(n/10) + n%10;
-}
 
-void sumarrep(int n){
+void sumarrep(string q,int k){
 
-	if(sumardiv(n)<=9){cout<<sumardiv(n)<<endl;return;}
-	sumarrep(sumardiv(n));
+	if(sumardiv(q,0)<=9){
+		int w=sumardiv(q,0);
+		if(w*k<=9)cout<<sumardiv(q,0)*k;
+		else sumarrep(to_string(w*k),1);
+		return;
+	}	
+	sumarrep(to_string(sumardiv(q,0)),k);
 }
 
 
 
 
 void solve(){
-	
-	int n;
-	while(cin>>n and n!=0){
-		sumarrep(n);
-	}
-
+	string q; cin>>q;
+	int k; cin>>k;							
+		sumarrep(q,k);
 }
 
 
 int main(){
 
-
+	#ifndef ONLINE_JUDGE
+freopen("D:/Problem Set Competitiva/input.txt","r",stdin);
+freopen("D:/Problem Set Competitiva/output.txt","w",stdout);
+#endif
+fast
 	int t=1;
 	while(t--){
 		solve();
