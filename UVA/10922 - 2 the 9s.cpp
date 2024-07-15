@@ -62,7 +62,7 @@ freopen("D:/Problem Set Competitiva/input.txt","r",stdin);
 freopen("D:/Problem Set Competitiva/output.txt","w",stdout);
 #endif
 fast
-	int t; cin>>t;
+	int t=1;
 	while(t--){
 		solve();
 	}
