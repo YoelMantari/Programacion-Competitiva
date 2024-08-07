@@ -20,7 +20,7 @@
 
 using namespace std;
 
-ull gcd(ull a,ull b){
+ll gcd(ll a,ll b){
 
 	ull res;
 	while(b){
@@ -39,7 +39,7 @@ void solve(){
 	vector<ll> ra(n),rb(m);
 	vin(ra); vin(rb);
 
-	int mcd=0;
+	ull mcd=0;
 
 	fi(i,1,n,1){
 		mcd=gcd(mcd,abs(ra[i]-ra[i-1]));
