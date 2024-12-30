@@ -1,6 +1,7 @@
 //#include<bits/stdc++.h>
 #include <algorithm>
 #include<iostream>
+#include <iterator>
 #define ll long long int
 
 #define all(a) a.begin(),a.end()
@@ -25,17 +26,11 @@ using namespace std;
 void solve(){
 	int a,b,c; cin>>a>>b>>c;
 
-	if(a*b*c==1 or (b!=1 and a*c==1)) cout<<a+b+c;
-	else if((a==1 and b==1) or (b==1 and c==1)){
-		cout<<2*max(max(a,b),c);
-	}		
-	else if(a==1)cout<<(a+b)*c;
-	else if(b==1){
-		if(a<c) cout<<(a+b)*c;
-		else cout<<a*(b+c);
-	}
-	else if(c==1)cout<<a*(b+c);
-	else cout<<a*b*c;
+	int res = a+b+c;
+	res=max(res,(a+b)*c);
+	res=max(res,a*(b+c));
+	res=max(res,a*b*c);
+	cout<<res<<endl;
 }
 
 
