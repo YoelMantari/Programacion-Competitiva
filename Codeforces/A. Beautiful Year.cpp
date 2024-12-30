@@ -22,35 +22,30 @@
 #define pll pair<ll,ll>
 #define pii pair<int,int>
 #define ingr(r) fi(i,0,sz(r),1)cin>>r[i]; 
-
+#define CLEAR(x) memset(x,0,sizeof x);
 using namespace std;
+
+
+
+
+bool band(int val){
+	vector<int>memo(20,0);
+	while(val){
+		int t=val%10;
+		if(memo[t])return false;
+		memo[t]=1;
+		val/=10;
+	}
+	return true;
+}
 
 void solve(){
 	
-	string w; cin>>w;
-	int val = stoi(w)+1;
-	w=to_string(val);
-	int tam = w.size();
-	bool band;
-	while(1){
-		band=true;
-		map<char,int> r;
-		for(int i =0; i<4;i++){
-			r[w[i]]++;
-		}
-		
-		for(auto i:r){
-			if(i.second>1) {
-				val++;
-				w=to_string(val);
-				band = false;
-				break;
-			}
-		}
-		if(band){
-			cout<<w;break;
-		}
-	}
+	int val; cin>>val;
+	++val;
+	while(!band(val))++val;
+
+	cout<<val<<endl;
 
 }
 
