@@ -31,19 +31,25 @@ void solve(){
 	int val = stoi(w)+1;
 	w=to_string(val);
 	int tam = w.size();
+	bool band;
 	while(1){
-
+		band=true;
 		map<char,int> r;
 		for(int i =0; i<4;i++){
 			r[w[i]]++;
 		}
-		if(tam == r.size()) {
-			cout<<w;
-			return;
+		
+		for(auto i:r){
+			if(i.second>1) {
+				val++;
+				w=to_string(val);
+				band = false;
+				break;
+			}
 		}
-		val++;
-		w=to_string(val);
-		tam = w.size();
+		if(band){
+			cout<<w;break;
+		}
 	}
 
 }
