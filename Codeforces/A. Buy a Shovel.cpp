@@ -1,5 +1,6 @@
 //#include<bits/stdc++.h>
 #include<iostream>
+#include <iterator>
 #define ll long long int
 
 #define all(a) a.begin(),a.end()
@@ -24,23 +25,12 @@ using namespace std;
 void solve(){
 	int k,r; cin>>k>>r;
 
-	int val = k%10;
-	int res;
-	if(val==0 or k==r ){
-		cout<<1<<endl;
-		return;
-	}
-	for(int i = 0;i<=1000;i++){
-		bool band = (10*i+r)%k;
-		if(!band){
-			cout<<((10*i+r)/k)%10<<endl;
+	for(int i=1;;i++){
+		if(k*i%10==0 or k*i%10==r){
+			cout<<i<<endl;
 			return;
 		}
 	}
-	if(val==5){
-		cout<<2;return;
-	}
-	cout<<5<<endl;
 
 }
 
