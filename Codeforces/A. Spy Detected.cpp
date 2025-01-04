@@ -26,25 +26,18 @@ using namespace std;
 void solve(){
 	
 	int n; cin>>n;
-	vector<int> r(n);
-
+	vector<int> r(101,0),w(n);
 	for(int i = 0; i<n; i++){
-		cin>>r[i];
+		cin>>w[i];
+		r[w[i]]++;
 	}
 
-	if(r[0]!=r[1] and r[0]==r[2])cout<<2;
-	else if(r[0]!=r[1] and r[0]!=r[2])cout<<1;
-	else{
-		set<int> w;
-		for(int i = 0; i<n;i++){
-			w.insert(r[i]);
-			if(w.size()==2){
-				cout<<i+1;
-				break;
-			}
+	for(int i=0;i<101;i++){
+		if(r[w[i]]==1){
+			cout<<i+1<<endl;
+			break;
 		}
 	}
-	cout<<endl;
 }
 
 
