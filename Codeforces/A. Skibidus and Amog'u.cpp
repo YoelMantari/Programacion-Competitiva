@@ -5,6 +5,8 @@ using namespace std;
 
 
 
+
+
 int32_t main(){
 
 #ifndef ONLINE_JUDGE
@@ -22,7 +24,7 @@ freopen("output.txt","w",stdout);
 		cout<<q<<endl;
 	}
 
-cout<<!@#$%^&^%$
+
 	return 0;
 }
 
